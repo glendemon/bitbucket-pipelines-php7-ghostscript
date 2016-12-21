@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM ubuntu:16.04
 MAINTAINER Dmytro Krasun <dmytro.krasun@tonicforhealth.com>
 
 ENV DEBIAN_FRONTEND noninteractive
@@ -27,7 +27,7 @@ RUN apt-get install -y curl git mysql-server mysql-client
 
 # install PHP and friends
 
-RUN apt-get install -y curl php7.0 php7.0-xdebug php7.0-mysql php7.0-xmlwriter
+RUN apt-get install -y curl php php-xdebug php-mysql php-xmlwriter
 RUN curl -sS https://getcomposer.org/installer | php -- --filename=composer --install-dir=/usr/bin
 
 # clean caches and clean package repository
