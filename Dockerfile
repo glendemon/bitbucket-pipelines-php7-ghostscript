@@ -12,8 +12,6 @@ RUN apt-get -y --no-install-recommends install locales apt-utils &&\
     locale-gen en_US.UTF-8 &&\
     /usr/sbin/update-locale LANG=en_US.UTF-8
 
-RUN apt-get install -y software-properties-common && add-apt-repository ppa:ondrej/php && apt-get update
-
 # Ghostscript (for parsing and converting PDF to images)
 RUN apt-get install -y ghostscript
 # install unzip for extracting cached vendors
