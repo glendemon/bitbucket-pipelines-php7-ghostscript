@@ -27,7 +27,7 @@ RUN apt-get install -y curl git mysql-server mysql-client
 
 # install PHP and friends
 
-RUN apt-get install -y curl php7.0 php7.0-xdebug php7.0-mysql php7.0-xmlwriter php7.0-gs
+RUN apt-get install -y curl php7.0 php7.0-xdebug php7.0-mysql php7.0-xmlwriter php7.0-gd
 RUN curl -sS https://getcomposer.org/installer | php -- --filename=composer --install-dir=/usr/bin
 
 # clean caches and clean package repository
