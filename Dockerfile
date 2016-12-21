@@ -24,7 +24,7 @@ RUN echo "mysql-server mysql-server/root_password_again password root" | debconf
 
 # install PHP and friends
 RUN apt-get install -y curl git mysql-server mysql-client
-RUN apt-get install -y curl php php-xdebug php-mysql
+RUN apt-get install -y curl php php-xdebug php-mysql php-xmlwriter
 RUN curl -sS https://getcomposer.org/installer | php -- --filename=composer --install-dir=/usr/bin
 
 # clean caches and clean package repository
