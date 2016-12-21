@@ -22,9 +22,11 @@ RUN apt-get install -y unzip
 # MySQL password
 RUN echo "mysql-server mysql-server/root_password password root" | debconf-set-selections
 RUN echo "mysql-server mysql-server/root_password_again password root" | debconf-set-selections
+# install curl, MySQL, Git
+RUN apt-get install -y curl git mysql-server mysql-client
 
 # install PHP and friends
-RUN apt-get install -y curl git mysql-server mysql-client
+
 RUN apt-get install -y curl php7.0 php7.0-xdebug php7.0-mysql php7.0-xmlwriter
 RUN curl -sS https://getcomposer.org/installer | php -- --filename=composer --install-dir=/usr/bin
 
