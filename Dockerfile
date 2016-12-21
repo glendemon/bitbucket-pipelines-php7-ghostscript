@@ -1,5 +1,4 @@
-# https://hub.docker.com/r/krasun/bitbucket-pipelines-survey-designer-server/
-FROM ubuntu:16.04
+FROM ubuntu:14.04
 MAINTAINER Dmytro Krasun <dmytro.krasun@tonicforhealth.com>
 
 ENV DEBIAN_FRONTEND noninteractive
@@ -13,6 +12,8 @@ RUN apt-get -y --no-install-recommends install locales apt-utils &&\
     locale-gen en_US.UTF-8 &&\
     /usr/sbin/update-locale LANG=en_US.UTF-8
 
+RUN apt-get install -y software-properties-common && add-apt-repository ppa:ondrej/php && apt-get update
+
 # Ghostscript (for parsing and converting PDF to images)
 RUN apt-get install -y ghostscript
 # install unzip for extracting cached vendors
@@ -24,7 +25,7 @@ RUN echo "mysql-server mysql-server/root_password_again password root" | debconf
 
 # install PHP and friends
 RUN apt-get install -y curl git mysql-server mysql-client
-RUN apt-get install -y curl php php-xdebug php-mysql php-xmlwriter
+RUN apt-get install -y curl php7.0 php7.0-xdebug php7.0-mysql php7.0-xmlwriter
 RUN curl -sS https://getcomposer.org/installer | php -- --filename=composer --install-dir=/usr/bin
 
 # clean caches and clean package repository
