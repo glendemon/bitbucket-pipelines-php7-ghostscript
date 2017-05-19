@@ -30,6 +30,7 @@ RUN apt-get install -y curl git mysql-server mysql-client
 RUN apt-get install -y curl php7.0 php7.0-curl php7.0-xdebug php7.0-mysql php7.0-xmlwriter php7.0-gd php7.0-apcu php7.0-apcu-bc php7.0-intl php7.0-bcmath php7.0-mbstring
 RUN curl -sS https://getcomposer.org/installer | php -- --filename=composer --install-dir=/usr/bin
 RUN curl -o insight.phar -s http://get.insight.sensiolabs.com/insight.phar && mv insight.phar /usr/local/bin/insight
+RUN chmod +x /usr/local/bin/insight
 
 # clean caches and clean package repository
 RUN apt-get autoclean && apt-get clean && apt-get autoremove
