@@ -23,7 +23,7 @@ RUN apt-get install -y unzip
 RUN echo "mysql-server mysql-server/root_password password root" | debconf-set-selections
 RUN echo "mysql-server mysql-server/root_password_again password root" | debconf-set-selections
 # install curl, MySQL, Git
-RUN apt-get install -y curl git mysql-server mysql-client
+RUN apt-get install -y curl git mysql-server mysql-client wget
 
 # install PHP and friends
 
