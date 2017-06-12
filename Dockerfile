@@ -27,6 +27,8 @@ RUN apt-get install -y curl git mysql-server mysql-client
 
 # install PHP and friends
 
+ENV PHPREDIS_VERSION 2.2.7
+
 RUN apt-get install -y curl php7.1 php7.1-curl php7.1-xdebug php7.1-mysql php7.1-xmlwriter php7.1-gd php7.1-apcu php7.1-apcu-bc php7.1-intl php7.1-bcmath php7.1-mbstring php7.1-exif
 RUN curl -sS https://getcomposer.org/installer | php -- --filename=composer --install-dir=/usr/bin
 RUN curl -o insight.phar -s http://get.insight.sensiolabs.com/insight.phar && mv insight.phar /usr/local/bin/insight
