@@ -24,6 +24,8 @@ RUN echo "mysql-server mysql-server/root_password password root" | debconf-set-s
 RUN echo "mysql-server mysql-server/root_password_again password root" | debconf-set-selections
 # install curl, MySQL, Git
 RUN apt-get install -y curl git mysql-server mysql-client
+# increase max connections number
+RUN sed  -i  's/#max_connections        = 100/max_connections = 1000/' /etc/mysql/my.cnf
 
 # install PHP and friends
 RUN apt-get install -y curl php7.1 php7.1-curl php7.1-xdebug php7.1-mysql php7.1-xmlwriter php7.1-gd php7.1-apcu php7.1-apcu-bc php7.1-intl php7.1-bcmath php7.1-mbstring php7.1-exif
