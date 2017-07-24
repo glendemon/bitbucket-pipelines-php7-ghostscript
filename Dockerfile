@@ -19,6 +19,9 @@ RUN apt-get install -y ghostscript
 # install unzip for extracting cached vendors
 RUN apt-get install -y unzip
 
+# install curl, MySQL, Git
+RUN apt-get install -y curl git mysql-client
+
 # install PHP and friends
 RUN apt-get install -y curl php7.1 php7.1-curl php7.1-xdebug php7.1-mysql php7.1-xmlwriter php7.1-gd php7.1-apcu php7.1-apcu-bc php7.1-intl php7.1-bcmath php7.1-mbstring php7.1-exif
 RUN curl -sS https://getcomposer.org/installer | php -- --filename=composer --install-dir=/usr/bin
