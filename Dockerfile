@@ -19,8 +19,11 @@ RUN apt-get install -y ghostscript
 # install unzip for extracting cached vendors
 RUN apt-get install -y unzip
 
+# MySQL password
+RUN echo "mysql-server mysql-server/root_password password root" | debconf-set-selections
+RUN echo "mysql-server mysql-server/root_password_again password root" | debconf-set-selections
 # install curl, MySQL, Git
-RUN apt-get install -y curl git mysql-client
+RUN apt-get install -y curl git mysql-server mysql-client
 
 # install PHP and friends
 RUN apt-get install -y curl php7.1 php7.1-curl php7.1-xdebug php7.1-mysql php7.1-xmlwriter php7.1-gd php7.1-apcu php7.1-apcu-bc php7.1-intl php7.1-bcmath php7.1-mbstring php7.1-exif
